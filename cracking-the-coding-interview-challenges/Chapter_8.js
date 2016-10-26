@@ -46,8 +46,37 @@ Permutations with Dups:
 
 /*
 8.9
-Parens:
+Parens: Implement an algorithm to print all valid (e.g. properly opened and closed) combinations of n pairs of parentheses.
+Input: 3
+Output: ['((()))', '(()())', '(())()', '()(())', '()()()']
  */
+
+const parens = n => {
+	let results = [];
+
+	let parenCombinations = (combo, open, close, balance) => {
+		// Base case:
+		if (combo.length === n * 2) {
+			results.push(combo);
+			return;
+		}
+		// Recursive case:
+		// Add an open paren
+		if (open > 0) {
+			parenCombinations(combo + '(', open - 1, close, balance + 1);
+		}
+		// Or add a close
+		if (close > 0 && balance > 0) {
+			parenCombinations(combo + ')', open, close - 1, balance - 1);
+		}
+
+	};
+// (
+  parenCombinations('', n, n, 0);
+  return results;
+}
+console.log(parens(3));
+
 
 /*
 8.10
