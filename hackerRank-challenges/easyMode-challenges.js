@@ -31,11 +31,7 @@ Sum across the secondary diagonal: 4 + 5 + 10 = 19
 Difference: |4 - 19| = 15
  */
 var diagonalDiff = function(matrix, n) {
-	var diff = 0;
-	for (var i = 0; i < n; i++) {
-		diff = diff + matrix[i][i] - matrix[i][(n - 1) - i]
-	}
-	return Math.abs(diff);
+	// Write your code here!
 }
 
 var input = [
@@ -45,4 +41,4 @@ var input = [
 ];
 
 
-console.log(diagonalDiff(input, 3));
+// console.log(diagonalDiff(input, 3));
