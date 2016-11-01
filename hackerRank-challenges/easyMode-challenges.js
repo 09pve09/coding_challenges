@@ -31,11 +31,7 @@ Sum across the secondary diagonal: 4 + 5 + 10 = 19
 Difference: |4 - 19| = 15
  */
 var diagonalDiff = function(matrix, n) {
-	var diff = 0;
-	for (var i = 0; i < n; i++) {
-		diff = diff + matrix[i][i] - matrix[i][(n - 1) - i]
-	}
-	return Math.abs(diff);
+	// Write your code here!
 }
 
 var input = [
@@ -133,3 +129,23 @@ function counter(a) {
     }
     console.log('Yes');
  */
+
+/*
+Left Rotation Array
+A left rotation operation on an array of size  shifts each of the array's elements  unit to the left. For example, if left rotations are performed on array , then the array would become .
+
+Given an array of  integers and a number, , perform  left rotations on the array. Then print the updated array as a single line of space-separated integers.
+
+Sample Input
+[1, 2, 3, 4, 5], 4
+
+Sample Output
+[5, 1, 2, 3, 4]
+
+ */
+var leftRotation = (array, rotations) => {
+	// Write your code here!
+}
+// Tests
+console.log([1, 2, 3, 4, 5], 4) // -> [5, 1, 2, 3, 4]
+console.log([1, 2, 3, 4, 5], 3) // -> [4, 5, 1, 2, 3]
