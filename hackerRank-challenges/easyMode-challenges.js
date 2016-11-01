@@ -42,3 +42,24 @@ var input = [
 
 
 // console.log(diagonalDiff(input, 3));
+
+
+/*
+Left Rotation Array
+A left rotation operation on an array of size  shifts each of the array's elements  unit to the left. For example, if left rotations are performed on array , then the array would become .
+
+Given an array of  integers and a number, , perform  left rotations on the array. Then print the updated array as a single line of space-separated integers.
+
+Sample Input
+[1, 2, 3, 4, 5], 4
+
+Sample Output
+[5, 1, 2, 3, 4]
+
+ */
+var leftRotation = (array, rotations) => {
+	// Write your code here!
+}
+// Tests
+console.log([1, 2, 3, 4, 5], 4) // -> [5, 1, 2, 3, 4]
+console.log([1, 2, 3, 4, 5], 3) // -> [4, 5, 1, 2, 3]
