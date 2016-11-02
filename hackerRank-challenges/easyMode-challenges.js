@@ -175,28 +175,43 @@ Sample Output
 4
  */
 var makingAnagrams = (str1, str2) => {
+	// var toRemove = 0; 
+
+ //  var ht = {}; 
+
+ //  for(var i = 0; i < str1.length; i++){
+ //      var ch = str1[i]; 
+ //      !ht[ch] ? ht[ch] = [1,0] : ht[ch][0]++;  
+ //  }
+
+ //  for(var i = 0; i < str2.length; i++){
+ //      var ch = str2[i]; 
+ //      !ht[ch] ? ht[ch] = [0,1] : ht[ch][1]++;  
+ //  }
+ //  // console.log(ht);
+ //  for(var key in ht){
+ //      toRemove += Math.abs(ht[key][0] - ht[key][1]); 
+ //  }
+ //  return toRemove;
 	var wordObj = {};
 	var toRemove = 0;
 	for (var i = 0; i < str1.length; i++) {
-		if (!wordObj[str1[i]]) {
-			wordObj[str1[i]] = 1;
-		} else {
-			wordObj[str1[i]]++;
-		}
+		wordObj[str1[i]] ? wordObj[str1[i]] = wordObj[str1[i]] + 1 : wordObj[str1[i]] = 1 ;
 	}
 	for (var i = 0; i < str2.length; i++) {
-		if (!wordObj[str2[i]]) {
-			wordObj[str2[i]] = 1;
-		} else {
-			wordObj[str2[i]]--;
-		}
+		wordObj[str2[i]] ? wordObj[str2[i]] = wordObj[str2[i]] - 1 : wordObj[str2[i]] = -1;
 	}
-
 	for (var key in wordObj) {
-		toRemove += wordObj[key]
+		toRemove += Math.abs(wordObj[key])
 	}
 	return toRemove;
 }
 
 // Tests
-console.log(makingAnagrams('cde', 'abc'));
+// console.log(makingAnagrams('cde', 'abc')); // 4
+// console.log(makingAnagrams('hell', 'hello')); // 1
+// console.log(makingAnagrams('isaac', 'issac')); // 2
+// console.log(makingAnagrams('isabel', 'isabelle')); // 2
+// console.log(makingAnagrams('lorena', 'lorenzo')); // 3
+// console.log(makingAnagrams('zohar', 'zohan')); // 2
+// console.log(makingAnagrams('aaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb')); // 104
