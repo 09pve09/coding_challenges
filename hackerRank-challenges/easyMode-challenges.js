@@ -106,7 +106,7 @@ var ransomNote = (magazine, ransom) => {
 
 // console.log(ransomNote('give me one grand today night', 'give one grand today')); // Yes
 // console.log(ransomNote('I will shoot that vase', 'I will shoot that vase and then shoot your garden gnome')); // No
-console.log(ransomNote('let us get crunk tonight', 'crunk get crunk')); // No
+// console.log(ransomNote('let us get crunk tonight', 'crunk get crunk')); // No
 // console.log(ransomNote('let us get crunk tonight', 'get crunk')); // Yes
 
 /*
@@ -131,7 +131,7 @@ function counter(a) {
  */
 
 /*
-Left Rotation Array
+Left Rotation - Array
 A left rotation operation on an array of size  shifts each of the array's elements  unit to the left. For example, if left rotations are performed on array , then the array would become .
 
 Given an array of  integers and a number, , perform  left rotations on the array. Then print the updated array as a single line of space-separated integers.
@@ -142,10 +142,61 @@ Sample Input
 Sample Output
 [5, 1, 2, 3, 4]
 
+Note: Because the constraints state that rotations < length, we need not concern ourselves with shifting > n units! :D
  */
 var leftRotation = (array, rotations) => {
-	// Write your code here!
+	var index = (rotations >= array.lenth) ? (array.length % rotations) : rotations;
+	return array.slice(index).concat(array.slice(0, index));
+	// if (rotations >= array.length) {
+	// 	return array;
+	// }
+	// for (var i = 0; i < rotations; i++) {
+	// 	array.push(array.shift());
+	// }
+	// return array;
 }
 // Tests
-console.log([1, 2, 3, 4, 5], 4) // -> [5, 1, 2, 3, 4]
-console.log([1, 2, 3, 4, 5], 3) // -> [4, 5, 1, 2, 3]
+// console.log(leftRotation([1, 2, 3, 4, 5], 4)) // -> [5, 1, 2, 3, 4]
+// console.log(leftRotation([1, 2, 3, 4, 5], 3)) // -> [4, 5, 1, 2, 3]
+// console.log(leftRotation([1, 2, 3, 4, 5], 7)) // -> [1, 2, 3, 4, 5]
+
+/*
+Making Anagrams - String
+Alice is taking a cryptography class and finding anagrams to be very useful. We consider two strings to be anagrams of each other if the first string's letters can be rearranged to form the second string. In other words, both strings must contain the same exact letters in the same exact frequency For example, bacdc and dcbac are anagrams, but bacdc and dcbad are not.
+
+Alice decides on an encryption scheme involving two large strings where encryption is dependent on the minimum number of character deletions required to make the two strings anagrams. Can you help her find this number?
+
+Given two strings,  and , that may or may not be of the same length, determine the minimum number of character deletions required to make  and  anagrams. Any characters can be deleted from either of the strings.
+
+Sample Input
+'cde'
+'abc'
+Sample Output
+4
+ */
+var makingAnagrams = (str1, str2) => {
+	var wordObj = {};
+	var toRemove = 0;
+	for (var i = 0; i < str1.length; i++) {
+		if (!wordObj[str1[i]]) {
+			wordObj[str1[i]] = 1;
+		} else {
+			wordObj[str1[i]]++;
+		}
+	}
+	for (var i = 0; i < str2.length; i++) {
+		if (!wordObj[str2[i]]) {
+			wordObj[str2[i]] = 1;
+		} else {
+			wordObj[str2[i]]--;
+		}
+	}
+
+	for (var key in wordObj) {
+		toRemove += wordObj[key]
+	}
+	return toRemove;
+}
+
+// Tests
+console.log(makingAnagrams('cde', 'abc'));
