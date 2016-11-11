@@ -215,3 +215,43 @@ var makingAnagrams = (str1, str2) => {
 // console.log(makingAnagrams('lorena', 'lorenzo')); // 3
 // console.log(makingAnagrams('zohar', 'zohan')); // 2
 // console.log(makingAnagrams('aaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb')); // 104
+
+
+/*
+Print Stairs
+
+Given a number, print out the stairs.
+Input:
+4
+
+Output:
+   # 
+  ##
+ ###
+####
+
+ */
+
+const printStairs = n => {
+	if (n === 0) {
+		return null;
+	}
+	let hashes = '';
+	let result = '';
+	while (n !== 0) {
+		let spaces = new Array(n).join(' ');
+		hashes += '#';
+		result = spaces + hashes;
+		n--;
+		console.log(result);
+	}
+}
+
+// Tests
+// console.log(printStairs(3));
+// console.log(printStairs(4));
+// console.log(printStairs(5));
+// console.log(printStairs(6));
+// console.log(printStairs(7));
+// console.log(printStairs(8));
+// console.log(printStairs(12));
