@@ -255,3 +255,142 @@ const printStairs = n => {
 // console.log(printStairs(7));
 // console.log(printStairs(8));
 // console.log(printStairs(12));
+
+
+/*
+Recursion: Fibonacci Numbers
+The Fibonacci Sequence 
+The Fibonacci sequence begins with  and  as its respective first and second terms. After these first two elements, each subsequent element is equal to the sum of the previous two elements.
+
+Here is the basic information you need to calculate fibonacci(n):
+fibonacci(0) = 0
+fibonacci(1) = 1
+fibonacci(n) = fibonacci(n - 1) + fibonacci(n - 2)
+
+Task 
+Given n, complete the fibonacci function so it returns fibonacci(n).
+
+Input Format
+
+Locked stub code in the editor reads a single integer denoting the value of n and passes it to the fibonacci function.
+
+Constraints
+0 < n < 40
+
+Output Format
+Locked stub code in the editor prints the value of fibonacci(n) returned by the fibonacci function.
+
+Sample Input
+3  
+Sample Output
+2
+
+Explanation
+Consider the Fibonacci sequence:
+fibonacci(0) = 0
+fibonacci(1) = 1
+fibonacci(2) = (0 + 1) = 1
+fibonacci(3) = (1 + 1) = 2
+We want to know the value of fibonacci(3). If we look at the sequence above, fibonacci(3) evaluates to 2. Thus, we print 2 as our answer.
+ */
+var nthFibonacci = n => {
+  if (n === 0 || n === 1) {
+  	return n;
+  }
+  return nthFibonacci(n - 1) + nthFibonacci(n - 2);
+}
+
+var nthFib = n => {
+	if (n === 0 || n === 1) {
+		return n;
+	}
+	let fibArr = [0, 1];
+
+	while (0 <= (n - 2)) {
+		fibArr.push(fibArr[fibArr.length - 1] + fibArr[fibArr.length - 2]);
+		n--;
+	}
+	return fibArr[fibArr.length - 1];
+}
+
+// Tests
+// console.log(nthFibonacci(3)) // 2
+// console.log(nthFibonacci(4)) // 3
+// console.log(nthFib(5));
+// console.log(nthFib(6));
+// console.log(nthFib(8));
+// console.log(nthFib(2));
+
+/*
+Apple and Orange
+Info here: https://www.hackerrank.com/challenges/apple-and-orange
+ */
+
+// Helper Functions
+var determineRange = (startRange, endRange) => {
+	var rangeResult = {};
+	if (startRange > endRange) {
+		for (var i = endRange; i <= startRange; i++) {
+			if (!rangeResult[i]) {
+				rangeResult[i] = true;
+			}
+		}
+	} else {
+		for (var i = startRange; i <= endRange; i++) {
+			if (!rangeResult[i]) {
+				rangeResult[i] = true;
+			}
+		}
+	}
+	return rangeResult;
+}
+
+// Tests
+// console.log(determineRange(7, 11));
+// console.log(determineRange(-5, 3));
+
+var orangeAppleSums = (treeValue, fruitArr) => {
+	let sum = [];
+	for (var i = 0; i < fruitArr.length; i++) {
+		sum.push(treeValue + fruitArr[i]);
+	}
+	return sum;
+}
+
+// Tests
+// console.log(orangeAppleSums(5, [-2, 2, 1]));
+
+var appleAndOrange = (startRange, endRange, a, b, am, bn) => {
+	let appleCount = am.filter((apple) => {
+		return ((a + apple) >= startRange && (a + apple) <= endRange);
+	});
+	let orangeCount = bn.filter((orange) => {
+		return ((b + orange) && (b + orange) <= endRange);
+	});
+	// let appleCount = am.reduce((count, apple) => {
+	// 	return ((a + apple) >= startRange && (a + apple) <= endRange) ? count+=1 : count;
+	// }, 0);
+	// let orangeCount = bn.reduce((count, orange) => {
+	// 	return ((b + orange) >= startRange && (b + orange) <= endRange) ? count+=1 : count;
+	// }, 0);
+	// let range = determineRange(startRange, endRange);
+	// let appleCount = 0;
+	// let orangeCount = 0;
+	// var appleSums = orangeAppleSums(a, am);
+	// var orangeSums = orangeAppleSums(b, bn);
+	// for (var i = 0; i < appleSums.length; i++) {
+	// 	if (appleSums[i] in range) {
+	// 		appleCount++;
+	// 	}
+	// }
+
+	// for (var i = 0; i < orangeSums.length; i++) {
+	// 	if (orangeSums[i] in range) {
+	// 		orangeCount++;
+	// 	}
+	// }
+	return appleCount.length + ' ' + orangeCount.length;
+}
+
+// Tests
+console.log(appleAndOrange(7, 11, 5, 15, [-2, 2, 1], [5, -6]));

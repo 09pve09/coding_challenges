@@ -37,5 +37,21 @@ Note that 'A' and 'a' are treated as two different characters.
  */
 
 var frequencySort = function(s) {
-	// Write your code here!
+	var ht = {};
+	var results = [];
+	// Count the frequency of characters
+	for (var i = 0; i < s.length; i++) {
+		if (!ht[s[i]]) {
+			ht[s[i]] = 1;
+		} else {
+			ht[s[i]]++;
+		}
+	}
+	for (var i = 0; i < s.length; i++) {
+		
+	}
+
+	return ht;
 };
+
+console.log(frequencySort('tree'));
