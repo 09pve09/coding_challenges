@@ -393,4 +393,4 @@ var appleAndOrange = (startRange, endRange, a, b, am, bn) => {
 }
 
 // Tests
-console.log(appleAndOrange(7, 11, 5, 15, [-2, 2, 1], [5, -6]));
+// console.log(appleAndOrange(7, 11, 5, 15, [-2, 2, 1], [5, -6]));
