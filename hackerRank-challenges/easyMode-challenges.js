@@ -237,14 +237,14 @@ const printStairs = n => {
 		return null;
 	}
 	let hashes = '';
-	let result = '';
-	while (n !== 0) {
+	let results = '';
+	while (n > 0) {
 		let spaces = new Array(n).join(' ');
 		hashes += '#';
-		result = spaces + hashes;
+		results += spaces + hashes + '\n';
 		n--;
-		console.log(result);
 	}
+	return results;
 }
 
 // Tests
