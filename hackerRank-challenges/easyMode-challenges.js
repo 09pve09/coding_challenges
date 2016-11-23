@@ -156,9 +156,101 @@ var leftRotation = (array, rotations) => {
 	// return array;
 }
 // Tests
+<<<<<<< HEAD
 // console.log(leftRotation([1, 2, 3, 4, 5], 4)) // -> [5, 1, 2, 3, 4]
 // console.log(leftRotation([1, 2, 3, 4, 5], 3)) // -> [4, 5, 1, 2, 3]
 // console.log(leftRotation([1, 2, 3, 4, 5], 7)) // -> [1, 2, 3, 4, 5]
+=======
+// console.log([1, 2, 3, 4, 5], 4) // -> [5, 1, 2, 3, 4]
+// console.log([1, 2, 3, 4, 5], 3) // -> [4, 5, 1, 2, 3]
+
+/*
+Given a square matrix of size , calculate the absolute difference between the sums of its diagonals.
+
+Input Format
+The first line contains a single integer, . The next  lines denote the matrix's rows, with each line containing space-separated integers describing the columns.
+
+Output Format
+Print the absolute difference between the two sums of the matrix's diagonals as a single integer.
+
+Sample Input
+
+3
+11 2 4
+4 5 6
+10 8 -12
+Sample Output
+15
+
+Explanation
+The primary diagonal is: 
+11
+   5
+     -12
+
+Sum across the primary diagonal: 11 + 5 - 12 = 4
+The secondary diagonal is:
+      4
+   5
+10
+Sum across the secondary diagonal: 4 + 5 + 10 = 19 
+Difference: |4 - 19| = 15
+ */
+var diagonalDiff = function(matrix, n) {
+	// Write your code here!
+}
+
+var input = [
+	[11, 2, 4],
+	[4, 5, 6],
+	[10, 8, -12]
+];
+
+
+// console.log(diagonalDiff(input, 3));
+
+/*
+Hash Tables: Ransom Note
+A kidnapper wrote a ransom note but is worried it will be traced back to him. He found a magazine and wants to know if he can cut out whole words from it and use them to create an untraceable replica of his ransom note. The words in his note are case-sensitive and he must use whole words available in the magazine, meaning he cannot use substrings or concatenation to create the words he needs.
+
+Given the words in the magazine and the words in the ransom note, print Yes if he can replicate his ransom note exactly using whole words from the magazine; otherwise, print No.
+
+Input Format
+
+The first line contains two space-separated integers describing the respective values of  (the number of words in the magazine) and  (the number of words in the ransom note). 
+The second line contains  space-separated strings denoting the words present in the magazine. 
+The third line contains  space-separated strings denoting the words present in the ransom note.
+
+Constraints
+Each word consists of English alphabetic letters (i.e.,  to  and  to ).
+The words in the note and magazine are case-sensitive.
+Output Format
+
+Print Yes if he can use the magazine to create an untraceable replica of his ransom note; otherwise, print No.
+
+Sample Input
+
+6 4
+give me one grand today night
+give one grand today
+
+Sample Output
+Yes
+
+Explanation
+All four words needed to write an untraceable replica of the ransom note are present in the magazine, so we print Yes as our answer.
+ */
+
+var ransomNote = (magazine, ransom) => {
+	// Write your code here!
+}
+
+// Tests
+// console.log(ransomNote('give me one grand today night', 'give one grand today')); // Yes
+// console.log(ransomNote('I will shoot that vase', 'I will shoot that vase and then shoot your garden gnome')); // No
+// console.log(ransomNote('let us get crunk tonight', 'crunk get crunk')); // No
+// console.log(ransomNote('let us get crunk tonight', 'get crunk')); // Yes
+>>>>>>> 3d8ddf1312061ab5eb0551ca0772b578c308bc66
 
 /*
 Making Anagrams - String
@@ -205,6 +297,9 @@ var makingAnagrams = (str1, str2) => {
 		toRemove += Math.abs(wordObj[key])
 	}
 	return toRemove;
+=======
+	// Write your code here!
+>>>>>>> 3d8ddf1312061ab5eb0551ca0772b578c308bc66
 }
 
 // Tests
@@ -394,3 +489,4 @@ var appleAndOrange = (startRange, endRange, a, b, am, bn) => {
 
 // Tests
 // console.log(appleAndOrange(7, 11, 5, 15, [-2, 2, 1], [5, -6]));
+

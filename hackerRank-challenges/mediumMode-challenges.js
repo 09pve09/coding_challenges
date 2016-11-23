@@ -3,6 +3,12 @@
 Stacks
 A stack is a data structure that uses a principle called Last-In-First-Out (LIFO), meaning that the last object added to the stack must be the first object removed from it.
 
+=======
+/*
+Stacks
+A stack is a data structure that uses a principle called Last-In-First-Out (LIFO), meaning that the last object added to the stack must be the first object removed from it.
+       
+>>>>>>> 3d8ddf1312061ab5eb0551ca0772b578c308bc66
 At minimum, any stack should be able to perform the following three operations:
 
 Peek: Return the object at the top of the stack (without removing it).
