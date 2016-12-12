@@ -156,11 +156,9 @@ var leftRotation = (array, rotations) => {
 	// return array;
 }
 // Tests
-<<<<<<< HEAD
 // console.log(leftRotation([1, 2, 3, 4, 5], 4)) // -> [5, 1, 2, 3, 4]
 // console.log(leftRotation([1, 2, 3, 4, 5], 3)) // -> [4, 5, 1, 2, 3]
 // console.log(leftRotation([1, 2, 3, 4, 5], 7)) // -> [1, 2, 3, 4, 5]
-=======
 // console.log([1, 2, 3, 4, 5], 4) // -> [5, 1, 2, 3, 4]
 // console.log([1, 2, 3, 4, 5], 3) // -> [4, 5, 1, 2, 3]
 
@@ -250,7 +248,6 @@ var ransomNote = (magazine, ransom) => {
 // console.log(ransomNote('I will shoot that vase', 'I will shoot that vase and then shoot your garden gnome')); // No
 // console.log(ransomNote('let us get crunk tonight', 'crunk get crunk')); // No
 // console.log(ransomNote('let us get crunk tonight', 'get crunk')); // Yes
->>>>>>> 3d8ddf1312061ab5eb0551ca0772b578c308bc66
 
 /*
 Making Anagrams - String
@@ -297,9 +294,6 @@ var makingAnagrams = (str1, str2) => {
 		toRemove += Math.abs(wordObj[key])
 	}
 	return toRemove;
-=======
-	// Write your code here!
->>>>>>> 3d8ddf1312061ab5eb0551ca0772b578c308bc66
 }
 
 // Tests
@@ -490,3 +484,90 @@ var appleAndOrange = (startRange, endRange, a, b, am, bn) => {
 // Tests
 // console.log(appleAndOrange(7, 11, 5, 15, [-2, 2, 1], [5, -6]));
 
+
+/*
+Luck Balance
+https://www.hackerrank.com/challenges/luck-balance
+ */
+
+var luckBalance = (contests, losesAvail, array) => {
+	let loss = array[losesAvail - 1];
+	console.log(loss)
+	let result = 0;
+	for (var i = 0; i < contests; i++) {
+		if (array[i] !== loss) {
+			result += array[i];
+		}
+	}
+	return result - loss;
+}
+
+// console.log(luckBalance(6, 3, [5, 2, 1, 8, 10, 5]));
+
+  // input = input.split('\n');
+  // let initialVars = input.splice(0, 1);
+  // let loss = input[initialVars[0][2] - 1][0];
+  // let contests = initialVars[0][0];
+  // let result = 0;
+  // for (var i = 0; i < contests; i++) {
+  //   if (input[i][0] !== loss) {
+  //     result += Number(input[i][0]);
+  //   }
+  // }
+  // console.log(result - loss);
+
+var mergeStrings = (a, b) => {
+  let lengthA = 0;
+  let lengthB = 0;
+  let result = '';
+
+  while (lengthA !== a.length || lengthB !== b.length) {
+    if (lengthA >= a.length) {
+      result += b[lengthB];
+      lengthB++;
+    } else if (lengthB >= b.length) {
+      result += a[lengthA];
+      lengthA++;
+    } else {
+      result += a[lengthA] + b[lengthB];
+      lengthA++;
+      lengthB++;
+    }
+  }
+  return result;
+}
+
+// console.log(mergeStrings('abc', 'def'));
+// console.log(mergeStrings('ab', 'zsd'));
+
+var braces = (...args) => { // arg, ...args
+  let braces = {
+    '{': '}',
+    '(': ')',
+    '[': ']'
+  }
+  
+  let stack = [];
+  let results = [];
+
+  for (let i = 0; i < args.length; i++) {
+    let curr = args[i];
+    for (let j = 0; j < curr.length; j++) {
+      let currElem = curr[j];
+      if (braces[currElem]) {
+        stack.push(currElem);
+      } else if (currElem === '}' || currElem === ')' || currElem === ']') {
+      	if (braces[stack.pop()] !== currElem) {
+      		results.push('No');
+      		break;
+      	} else {
+      		results.push('Yes');
+      		break;
+      	}
+      }
+    }
+  }
+  return results;
+}
+
+console.log(braces('hello (love of mine)', '{[}]}'));

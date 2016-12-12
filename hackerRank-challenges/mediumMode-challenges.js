@@ -205,8 +205,6 @@ class QueueTwoStacks {
 
 	enqueue(value) {
 		++this.length && this.inbox.push(value);
-	}
-
 	dequeue() {
 		if (this.length > 0) {
 			while (this.inbox.size() > 0) {

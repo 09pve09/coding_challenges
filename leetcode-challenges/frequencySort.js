@@ -37,21 +37,84 @@ Note that 'A' and 'a' are treated as two different characters.
  */
 
 var frequencySort = function(s) {
-	var ht = {};
-	var results = [];
-	// Count the frequency of characters
-	for (var i = 0; i < s.length; i++) {
-		if (!ht[s[i]]) {
-			ht[s[i]] = 1;
-		} else {
-			ht[s[i]]++;
+	let ht = {};
+	let bucket = {};
+	let results = [];
+	let set = new Set();
+
+	for (let i = 0; i <= s.length - 1; i++) {
+		let curr = s[i];
+		set.add(curr);
+		if (!ht[curr]) {
+			ht[curr] = 1;
+		} else if (ht[curr] && s[i - 1] === curr) {
+			ht[curr]++;
 		}
 	}
-	for (var i = 0; i < s.length; i++) {
-		
+
+	let length = 0;
+	for (let letters in ht) {
+		length += ht[letters];
+	}
+	if (length !== s.length) {
+		return 'String error';
 	}
 
-	return ht;
+	for (let val of set) {
+		let freq = ht[val];
+		if (!bucket[freq]) {
+			bucket[freq] = [];
+		}
+		bucket[freq].push(new Array(freq + 1).join(val));
+	}
+
+	for (var i = s.length; i > 0; i--) {
+		if (bucket[i]) {
+			// results.push(...bucket[i]);
+			results = results.concat(bucket[i]);
+		}
+	}
+	return results.join('');
 };
 
+
+/*
+// Accepted answer on leetcode
+var frequencySort = function(s) {
+    let set = new Set();
+    let ht = {};
+    let bucket = {};
+    let results = [];
+    
+    for (let i = s.length - 1; i >= 0; i--) {
+        let curr = s[i];
+        set.add(curr);
+        if (!ht[curr]) {
+            ht[curr] = 1;
+        } else if (ht[curr]) {
+            ht[curr]++;
+        }
+    }
+    
+    for (let char of set) {
+        let freq = ht[char];
+        if (!bucket[freq]) {
+            bucket[freq] = [];
+        }
+        bucket[freq].push(new Array(freq + 1).join(char));
+    }
+    
+    for (let i = s.length; i > 0; i--) {
+        if (bucket[i]) {
+            results = results.concat(bucket[i]);
+        }
+    }
+    
+    return results.join('');
+};
+ */
+
 console.log(frequencySort('tree'));
+console.log(frequencySort('Aabb'));
+console.log(frequencySort('cccaaa'));
+console.log(frequencySort('cacaca'));

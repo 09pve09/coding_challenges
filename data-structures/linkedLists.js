@@ -1,9 +1,9 @@
 /*
-Linked Lists
+Create a Linked List Class
+
+Extra credit: Doubly Linked List
  */
 
-// let ll = require('../data-structures/linkedLists');
-// console.log(new ll.LinkedList())
 class Node {
 	constructor(val) {
 		this.value = val || null;
@@ -135,44 +135,40 @@ class LinkedList {
 		}
 		return false;
 	}
-
-	/*
-	2.1 Remove Dups
-
-	Can we do this in O(n) time? Delete as we go?
-	If we have already encountered a value, then we can delete the next
-	one we come across. We can use a hash to help determine this, something
-	that looks like this:
-	{
-		1: true,
-		2: true,
-		3: true,
-		4: true
-	}
-	*/
-	removeDups() {
-		let currNode = this.head;
-		let nonDups = {};
-		// Keep track of index
-		let i = 0;
-
-		while (currNode) {
-			if (!nonDups[currNode.value]) {
-				nonDups[currNode.value] = currNode.value;
-			} else {
-
-			}
-			i++;
-			currNode = currNode.next;
-		}
-	}
 }
 
-let ll = new LinkedList();
-ll.append(1);
-ll.append(2);
-ll.append(3);
-ll.append(2);
-ll.append(4);
-ll.append(1);
+// Tests
+// var ll = new LinkedList();
+// ll.append(5);
+// ll.append(10);
+// ll.insertAt(17, 2);
+// console.log(ll);
+// console.log(ll);
+// ll.append(1);
+// ll.append(2);
+// ll.append(4);
+// ll.insertAt(3, 1);
+// console.assert(ll.contains(3) === true, 'Should equal true');
+// ll.delete(2);
+// console.assert(ll.contains(3) === false, 'Should equal false');
+// ll.delete(2); // 1 -> 2 -> 4 / Should delete 4 and replace with 2
+// ll.delete(0); // 1 -> 2 / Should delete 1 and leave 2
+// console.assert(ll.contains(2) === true, 'Should equal true');
+// console.log(ll);
 
+// class DLLNode {
+// 	constructor() {
+
+// 	}
+// }
+
+// class DoublyLinkedList {
+// 	constructor() {
+
+// 	}
+// }
+
+module.exports = {
+	LinkedList,
+	Node
+}
