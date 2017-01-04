@@ -31,7 +31,6 @@ let superbalanced = root => {
 		let nodePairs = nodes.pop();
 		let node = nodePairs[0];
 		let depth = nodePairs[1];
-		console.log(node.value);
 		if (!node.left && !node.right) {
 			if (depths.indexOf(depth) < 0) {
 				depths.push(depth);
