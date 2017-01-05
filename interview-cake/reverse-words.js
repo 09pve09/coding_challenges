@@ -30,7 +30,7 @@ var reverseWords = str => {
 	let startIndex = 0;
 	let endIndex = str.length - 1;
 
-	while (startIndex < endIndex) {
+	while (startIindex < endIndex) {
 		let temp = str[startIndex];
 		str[startIndex] = str[endIndex];
 		str[endIndex] = temp;
