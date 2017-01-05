@@ -14,6 +14,17 @@ reverseWords(message);
 When writing your function, assume the message contains only letters and spaces, and all words are separated by one space.
  */
 
+// var reverseWords = str => {
+// 	str = str.split(' ');
+// 	// Go through half the words and switch
+// 	for (let i = 0; i < Math.floor(str.length / 2); i++) {
+// 		let temp = str[i];
+// 		str[i] = str[str.length - 1 - i];
+// 		str[str.length - 1 - i] = temp;
+// 	}
+// 	return str.join(' ');
+// }
+
 var reverseWords = str => {
 	str = str.split(' ');
 	let startIndex = 0;
@@ -24,12 +35,11 @@ var reverseWords = str => {
 		str[startIndex] = str[endIndex];
 		str[endIndex] = temp;
 
-		startIndex++;
-		endIndex--;
+		startIndex += 1;
+		endIndex -= 1;
 	}
 	return str.join(' ');
 }
 
-console.log(reverseWords('find you will pain only go you recordings security the into if'));
-
-console.log(reverseWords('the eagle has landed'));
+// console.log(reverseWords('find you will pain only go you recordings security the into if'));
+// console.log(reverseWords('the eagle has landed'));
