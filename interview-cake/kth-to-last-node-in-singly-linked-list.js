@@ -1,11 +1,12 @@
-// My solution:
-const kthToLast=(k, head)=>{
-	let currNode = head;
+// Clean up code
+var kthToLastNode = (headNode, k) => {
+	let currNode = headNode;
 	let beginning = currNode;
 	let end = null;
 	let counter = 1;
 
 	while (currNode && k !== 0) {
+		// Set our 'stick'
 		if (counter === k) {
 			end = currNode;
 		}
@@ -14,10 +15,35 @@ const kthToLast=(k, head)=>{
 			end = currNode;
 		}
 		currNode = currNode.next;
-		counter++;
+		counter += 1;
 	}
-	return (k === 0 || k < 1) ? null : beginning;
+	if (counter === k || k < 1) {
+		throw new Error('K is out of LL range!');
+	}
+
+	return beginning.value;
 }
+
+// My solution:
+// const kthToLast=(k, head)=>{
+// 	let currNode = head;
+// 	let beginning = currNode;
+// 	let end = null;
+// 	let counter = 1;
+
+// 	while (currNode && k !== 0) {
+// 		if (counter === k) {
+// 			end = currNode;
+// 		}
+// 		if (counter > k) {
+// 			beginning = beginning.next;
+// 			end = currNode;
+// 		}
+// 		currNode = currNode.next;
+// 		counter++;
+// 	}
+// 	return (k === 0 || k < 1) ? null : beginning;
+// }
 
 	
 
@@ -62,4 +88,4 @@ c.next = d;
 d.next = e;
 
 
-console.log(kthToLast(-1, a));
+// console.log(kthToLastNode(a, 2));
